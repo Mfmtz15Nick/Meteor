@@ -1,9 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
- 
-
- 
 import './task.html';
+
 Template.task.helpers({
     isOwner() {
       return this.owner === Meteor.userId();
@@ -21,4 +19,8 @@ Template.task.events({
     'click .toggle-private'() {
     Meteor.call('tasks.setPrivate', this._id, !this.private);
   },
+  'click .toggle-favorite'() {
+    Meteor.call('tasks.ImprimeLog',this._id,!this.favorite);
+  },
+
 });
