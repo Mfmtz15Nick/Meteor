@@ -45,9 +45,9 @@ Meteor.methods({
    
       Tasks.remove(taskId);
     },
-    'tasks.ImprimeLog'(taskId, ImprimeLog){
+    'tasks.setFavorito'(taskId, setFavorito){
         check(taskId, String);
-        check(ImprimeLog, Boolean);
+        check(setFavorito, Boolean);
 
         const task = Tasks.findOne(taskId);
         if (task.private && task.owner !== Meteor.userId()) {
@@ -55,7 +55,7 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
       }
    
-      Tasks.update(taskId, { $set: { favorite: ImprimeLog } });
+      Tasks.update(taskId, { $set: { favorite: setFavorito } });
          
     },
     'tasks.setChecked'(taskId, setChecked) {

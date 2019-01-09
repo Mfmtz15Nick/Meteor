@@ -20,7 +20,7 @@ Template.task.events({
     Meteor.call('tasks.setPrivate', this._id, !this.private);
   },
   'click .toggle-favorite'() {
-    Meteor.call('tasks.ImprimeLog',this._id,!this.favorite);
+    Meteor.call('tasks.setFavorito',this._id,!this.favorite);
   },
 
 });
