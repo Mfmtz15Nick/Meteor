@@ -32,6 +32,7 @@ Meteor.methods({
         owner: Meteor.userId(),
         username: Meteor.user().username,
       });
+      
     },
     'tasks.remove'(taskId) {
       check(taskId, String);
@@ -70,3 +71,4 @@ Meteor.methods({
         Tasks.update(taskId, { $set: { private: setToPrivate } });
       },
   });
+   
